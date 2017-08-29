@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  gitea:
+    container_name: gitea
+    restart: always
+    image: gitea/gitea:latest
+    volumes:
+      - /srv/gitea:/data      
+    ports:
+      - "10022:22"
+      - "13000:3000"     

@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  openproject:
+    container_name: openproject
+    restart: always
+    image: openproject/community:7
+    volumes:
+      - /srv/openproject/logs:/var/log/supervisor 
+      - /srv/openproject/static:/var/db/openproject"      
+    ports:
+      - "10081:80"
+    environment:
+     DATABASE_URL: 'mysql2://openproject:passwordmysql@192.168.1.46:13306/openproject'
+     SESSION_STORE: 'active_record_store'     
